@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TR AI Chat - Qwen 3.5</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Login Section -->
+        <div id="login-container" class="glass-panel">
+            <h1>TR AI Login</h1>
+            <p>Enter your email to receive an OTP</p>
+            <div id="email-step">
+                <input type="email" id="email-input" placeholder="email@example.com" required>
+                <button id="send-otp-btn">Send OTP</button>
+            </div>
+            <div id="otp-step" class="hidden">
+                <input type="text" id="otp-input" placeholder="Enter 6-digit OTP" maxlength="6">
+                <button id="verify-otp-btn">Verify & Login</button>
+                <p id="resend-timer"></p>
+            </div>
+            <div id="login-msg"></div>
+        </div>
+
+        <!-- Main Chat Section (Hidden initially) -->
+        <div id="chat-container" class="hidden">
+            <header class="glass-header">
+                <div class="header-left">
+                    <img src="https://technorapide.com/favicon.ico" alt="Logo" class="logo">
+                    <h2>TR AI Assistant</h2>
+                </div>
+                <div class="header-right">
+                    <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                </div>
+            </header>
+
+            <main id="chat-window">
+                <div id="messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div id="thinking-indicator" class="hidden">Thinking.......</div>
+            </main>
+
+            <footer class="glass-footer">
+                <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Type your message..."></textarea>
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Side Menu -->
+        <div id="side-menu" class="hidden">
+            <div class="menu-content glass-panel">
+                <button id="close-menu"><i class="fas fa-times"></i></button>
+                <h3>Menu</h3>
+                <ul>
+                    <li id="show-chat">Chat</li>
+                    <li id="show-api">API Section</li>
+                    <li id="logout-btn">Logout</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- API Section Content -->
+        <div id="api-panel" class="hidden glass-panel">
+            <button id="close-api" class="close-btn">&times;</button>
+            <h2>API Documentation</h2>
+            <div class="api-doc">
+                <p><strong>Base URL:</strong> <code>/api/external</code></p>
+                <div class="endpoint">
+                    <h4>POST /chat</h4>
+                    <p>Send a message to the AI model.</p>
+                    <pre>
+Header:
+x-api-token: technorapide@310424
+
+Body:
+{
+  "message": "Hello"
+}
+                    </pre>
+                </div>
+                <div class="endpoint">
+                    <h4>GET /docs</h4>
+                    <p>Get API documentation in JSON format.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
